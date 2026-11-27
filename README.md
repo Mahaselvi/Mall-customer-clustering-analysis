@@ -111,13 +111,13 @@ I built this on Python 3.14. Other recent Python 3 versions should work too, but
 ├── mall_customer_segmentation.ipynb
 ├── Mall_Customers.csv
 ├── images/
-│   ├── Method1.png
-│   ├── method1_cluster.png
-│   ├── method2.png
-│   ├── method2_clusters.png
-│   ├── method3.png
-│   ├── method4.png
-│   └── method4_clusters.png
+├── Method1.png
+├── method1_cluster.png
+├── method2.png
+├── method2_clusters.png
+├── method3.png
+├── method4.png
+├── method4_clusters.png
 └── README.md
 ```
 
