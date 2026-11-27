@@ -26,9 +26,9 @@ I ran four experiments. Each one scales the features first, since K-Means is dis
 
 Two features, so the clusters can be plotted directly with no PCA. This is the cleanest case: WCSS drops steeply until k = 5 and then flattens, and the silhouette score peaks at k = 5 (0.5547).
 
-<img src="images/Method1.png" alt="Elbow method and silhouette score for the 2-feature model" width="800">
+<img src="Method1.png" alt="Elbow method and silhouette score for the 2-feature model" width="800">
 
-<img src="images/method1_cluster.png" alt="Customer segments for income and spending score with k=5" width="700">
+<img src="method1_cluster.png" alt="Customer segments for income and spending score with k=5" width="700">
 
 *Cluster numbers in this plot: 0 = standard, 1 = target customers, 2 = young trend-driven spenders, 3 = untapped potential, 4 = budget-conscious.*
 
@@ -36,23 +36,23 @@ Two features, so the clusters can be plotted directly with no PCA. This is the c
 
 Here PCA is used only to draw the clusters in 2D, not to create them. The elbow plot has no sharp bend (WCSS falls steeply until k = 4 and then flattens gradually), and the silhouette peaks at k = 6 (0.4284), only slightly above k = 5. I went with k = 6 because it has the highest silhouette and it splits the large middle group into an older and a younger half.
 
-<img src="images/method2.png" alt="Elbow method and silhouette score for the 3-feature model" width="800">
+<img src="method2.png" alt="Elbow method and silhouette score for the 3-feature model" width="800">
 
-<img src="images/method2_clusters.png" alt="3-feature K-Means with k=6 shown in PCA 2D view" width="700">
+<img src="method2_clusters.png" alt="3-feature K-Means with k=6 shown in PCA 2D view" width="700">
 
 ### 3. All four features, including Gender
 
 This one is a diagnostic. There is no clear elbow, and the silhouette keeps rising all the way to k = 10. A crosstab showed why: at k = 10, nine of the ten clusters contain only one gender. Gender is a 0/1 column, and after scaling it creates a bigger gap than any of the other features, so K-Means splits on it first. I stopped here and left Gender out of the clustering from then on.
 
-<img src="images/method3.png" alt="Elbow method and silhouette score for the 4-feature model including Gender" width="800">
+<img src="method3.png" alt="Elbow method and silhouette score for the 4-feature model including Gender" width="800">
 
 ### 4. Age + Income + Spending Score, then PCA (2 components), then K-Means
 
 This keeps about 77.6% of the variance and clusters in the reduced space. k = 2 has a slightly higher silhouette (0.4256), but I chose k = 4 (0.4209) because the WCSS is still falling steeply at 2, k = 4 sits near the bend in the elbow curve, and it gives four distinguishable segments.
 
-<img src="images/method4.png" alt="Elbow method and silhouette score after PCA" width="800">
+<img src="method4.png" alt="Elbow method and silhouette score after PCA" width="800">
 
-<img src="images/method4_clusters.png" alt="Scale, PCA, K-Means with k=4 shown in PCA 2D view" width="700">
+<img src="method4_clusters.png" alt="Scale, PCA, K-Means with k=4 shown in PCA 2D view" width="700">
 
 ## Results
 
